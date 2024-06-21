@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import BuscarClient from './components/buscarClient';
+import BuscarClients from './components/buscarClients';
+import AdicionarClient from './components/adicionarClient';
+import AtualizarClient from './components/atualizarClient';
+import DeletarClient from "./components/deletarClient";
+import React from 'react';
+
+import logo from './log.svg'
+
+import { ReactSVG } from 'react-svg';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <ReactSVG src={logo}/>
+      </div>
+      <BuscarClient/>
+      <BuscarClients/>
+      <AdicionarClient/>
+      <AtualizarClient/>
+      <DeletarClient/>
+    </>
   );
 }
 
