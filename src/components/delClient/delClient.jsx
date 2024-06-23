@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { deleteClientByID } from "../service/deleteService";
+import { deleteClientByID } from "../../service/deleteService";
+import { DelSty } from "./style";
 
-export default function DeletarClient(){
+export default function DelClient(){
 
     const [clientId, setClientId] = useState("");
     const [clientData, setClientData] = useState(null);
@@ -22,18 +23,20 @@ export default function DeletarClient(){
     }
 
     return(
-        <>
+        <DelSty id="S5">
             <h1>Deletar Clinte</h1>
-            <div>
-                <h2>insira o id do cliente</h2>
-                <input
-                    type="text"
-                    id="input_clientId"
-                    value={clientId}
-                    onChange={(e)=>{setClientId(e.target.value)}}
-                />
+            <div className="data_insert">
+                <div className="data">
+                    <h2>insira o id do cliente</h2>
+                    <input
+                        type="text"
+                        id="input_clientId"
+                        value={clientId}
+                        onChange={(e)=>{setClientId(e.target.value)}}
+                    />
+                </div>
                 <button onClick={handleSearch}>Deletar</button>
-                <div>
+                <div className="panel">
                     {errorMessage && <p>{errorMessage}</p>}
                     {clientData && (
                         <div>
@@ -43,7 +46,7 @@ export default function DeletarClient(){
 
                 </div>
             </div>
-        </>
+        </DelSty>
     )
 
 }

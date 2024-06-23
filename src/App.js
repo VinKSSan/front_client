@@ -1,26 +1,19 @@
 
 import './App.css';
-import BuscarClient from './components/buscarClient';
-import BuscarClients from './components/buscarClients';
-import AdicionarClient from './components/adicionarClient';
-import AtualizarClient from './components/atualizarClient';
-import DeletarClient from "./components/deletarClient";
+import AddClient from './components/addClient/addClient';
+import PutClient from './components/putClient/putClient';
+import DelClient from "./components/delClient/delClient";
+
+import logo from './log.svg';
 import React from 'react';
-
-import logo from './log.svg'
-
-import { ReactSVG } from 'react-svg';
+import GetC from './components/get/getC';
 function App() {
   return (
     <>
-      <div>
-        <ReactSVG src={logo}/>
-      </div>
-      <BuscarClient/>
-      <BuscarClients/>
-      <AdicionarClient/>
-      <AtualizarClient/>
-      <DeletarClient/>
+      <GetC/>
+      <AddClient/>
+      <PutClient/>
+      <DelClient/>
     </>
   );
 }

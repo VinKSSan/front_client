@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { findClientByID } from "../service/getService";
+import { findClientByID } from "../../../service/getService";
 
-export default function BuscarClient(){
+export default function GetClient(){
 
     const [clientId, setClientId] = useState("");
     const [clientData, setClientData] = useState(null);
@@ -22,21 +22,24 @@ export default function BuscarClient(){
     }
 
     return(
-        <>
+        <div id="S1" className="conteiner id">
             <h1>Buscar Clinte</h1>
-            <div>
-                <h2>insira o id do cliente </h2>
-                <input
-                    type="text"
-                    id="input_clientId"
-                    value={clientId}
-                    onChange={(e)=>{setClientId(e.target.value)}}
-                />
-                <button onClick={handleSearch}>buscar</button>
-                <div>
+            <div className="insert_data">
+                <div className="data">
+                    <h2>insira o id do cliente </h2>
+                    <input
+                        type="text"
+                        id="input_clientId"
+                        value={clientId}
+                        onChange={(e)=>{setClientId(e.target.value)}}
+                    />
+                </div>
+            </div>
+            <button onClick={handleSearch}>buscar</button>
+                <div className="painel">
                     {errorMessage && <p>{errorMessage}</p>}
                     {clientData && (
-                        <div>
+                        <div className="card_clients">
                             <h3>Data Client</h3>
                             <p>name: {clientData.name}</p>
                             <p>cpf: {clientData.cpf}</p>
@@ -45,10 +48,8 @@ export default function BuscarClient(){
                             <p>children: {clientData.children}</p>
                         </div>
                     )}
-
                 </div>
-            </div>
-        </>
+        </div>
     )
 
 }

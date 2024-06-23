@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { findAllClients, findClientByID } from "../service/getService";
+import { findAllClients} from "../../../service/getService";
 
-export default function BuscarClients(){
+export default function GetClients(){
 
     const [ncpp, setNcpp] = useState("");
     const [ndp, setNdp] = useState("");
@@ -32,7 +32,7 @@ export default function BuscarClients(){
         clients.forEach(c => {
             conta+=1;
             listaClients.push(
-                <div key={c.id}>
+                <div key={c.id} className="card_clients">
                     <h2>Cliente numero: {conta}</h2>
                     <p>{c.name}</p>
                     <p>{c.cpf}</p>
@@ -50,36 +50,38 @@ export default function BuscarClients(){
 
 
     return(
-        <>
-            <h1>Buscar Clintes.</h1>
-            <div>
-                <h2>insira o numero de clientes por pagina.</h2>
-                <input
-                    type="text"
-                    id="input_ncpp"
-                    value={ncpp}
-                    onChange={(e)=>{setNcpp(e.target.value)}}
-                />
-                <h2>insira o numero da pagina</h2>
-                <input
-                    type="text"
-                    id="input_clientId"
-                    value={ndp}
-                    onChange={(e)=>{setNdp(e.target.value)}}
-                />
-                <button onClick={handleSearch}>buscar</button>
-                <div>
-                    {errorMessage && <p>{errorMessage}</p>}
-                    {clientData && (
-                        <div>
-                            <h3>Data Clients</h3>
-                            {clients}
-                        </div>
-                    )}
-
+        <div id="S2" className="conteiner all">
+            <h1>Buscar pagina de clintes.</h1>
+            <div className="insert_data">
+                <div className="data">
+                    <h2>insira o numero de clientes por pagina.</h2>
+                    <input
+                        type="text"
+                        id="input_ncpp"
+                        value={ncpp<=5?ncpp:"letra ou valor maior que 5 não"}
+                        onChange={(e)=>{setNcpp(e.target.value)}}
+                    />
+                </div>
+                <div className="data">
+                    <h2>insira o numero da pagina</h2>
+                    <input
+                        type="text"
+                        id="input_clientId"
+                        value={ndp}
+                        onChange={(e)=>{setNdp(e.target.value)}}
+                    />
                 </div>
             </div>
-        </>
+            <button onClick={handleSearch}>buscar</button>
+            <div className="painel">
+                {errorMessage && <p>{errorMessage}</p>}
+                {clientData && (
+                    <div className="painel clients">
+                        {clients}
+                    </div>
+                )}
+            </div>
+        </div>
     )
 
 }

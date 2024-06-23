@@ -4,9 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+import Cabecao from './components/header/cabecao';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <p id="cabeca"></p>
+    <Cabecao/>
     <App />
   </React.StrictMode>
 );
